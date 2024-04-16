@@ -3,4 +3,4 @@ Grupo formado por:
 - Bruno Cardoso (bcjesus.cic@uesc.br - 202320096);
 - João Pedro França (jpfcoliveira.cic@uesc.br - );
 - Lucas Vieira (lvalmeida.cic@uesc.br - 202320101);
-- Vinicius Cunha (vdrcunha.cic@uesc.br - ).
+- Vinicius Cunha (vdrcunha.cic@uesc.br - 202320106).
