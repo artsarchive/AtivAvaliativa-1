@@ -1,35 +1,34 @@
-#include <stdio.h>
-#include <time.h> 
-#include <stdlib.h> 
+#include <stdio.h> // Inclui a biblioteca padrão de entrada e saída em C, necessária para usar funções como printf e scanf.
 
-#define TAM 5
-
-
-// FunÃ§Ã£o para calcular o valor mÃ©dio de um array de valores double de forma recursiva
-double valorMedioG(double x[], int N){
-     
-    // Caso base: quando o tamanho do array Ã© 0, retorna 1
-    if (N == 0)
-    return 0;  
-    return (x[N - 1] + (N - 1)* valorMedioG(x, N - 1))/ N ;
-}
-int main() {
-    int N = TAM;
-    double x[N] ; 
-  srand(time(NULL)); 
-
-  for (int i = 0; i < N; i++) {
-        x[i] = rand() % 5;
-  }
-
-    printf("Valores aleatÃ³rios:\n");
-    for (int i = 0; i < N; i++) {
-        printf("%.1f ", x[i]);
+int soma_array_recursiva(int arr[], int tamanho) { // Define a função soma_array_recursiva que recebe um array de inteiros e seu tamanho como argumentos e retorna um inteiro.
+    if (tamanho == 0) { // Verifica se o tamanho do array é 0.
+        return 0; // Se o tamanho for 0, retorna 0 (caso base).
     }
-    printf("\n");
-    
+    return arr[tamanho - 1] + soma_array_recursiva(arr, tamanho - 1); // Retorna o último elemento do array somado à chamada recursiva da função com tamanho reduzido.
+}
 
-    printf("Valor mÃ©dio: %.2f\n", valorMedioG(x, N));
+float media_array_recursiva(int arr[], int tamanho) { // Define a função media_array_recursiva que recebe um array de inteiros e seu tamanho como argumentos e retorna um float.
+    if (tamanho == 0) { // Verifica se o tamanho do array é 0.
+        return 0; // Se o tamanho for 0, retorna 0 (caso base).
+    }
+    int soma = soma_array_recursiva(arr, tamanho); // Calcula a soma dos elementos do array chamando a função soma_array_recursiva.
+    return (float)soma / tamanho; // Retorna a média dos elementos do array, convertendo a soma para float antes de dividir pelo tamanho.
+}
 
-    return 0;
+int main() { // Define a função principal main.
+    int array_teste[] = {1, 2, 3, 4, 5}; // Declara e inicializa um array de teste com alguns valores.
+    int tamanho = sizeof(array_teste) / sizeof(array_teste[0]); // Calcula o tamanho do array.
+
+    printf("Array: {"); // Imprime uma mensagem indicando que o array será exibido.
+    for (int i = 0; i < tamanho; ++i) { // Itera sobre os elementos do array.
+        printf("%d", array_teste[i]); // Imprime o elemento atual do array.
+        if (i < tamanho - 1) { // Verifica se não é o último elemento do array.
+            printf(", "); // Se não for o último elemento, imprime uma vírgula e um espaço.
+        }
+    }
+    printf("}\n"); // Imprime um fechamento de chaves para indicar o fim do array.
+
+    printf("Média: %.2f\n", media_array_recursiva(array_teste, tamanho)); // Imprime a média dos elementos do array de teste.
+
+    return 0; // Retorna 0 para indicar que o programa foi executado com sucesso.
 }
