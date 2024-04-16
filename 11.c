@@ -10,7 +10,7 @@ double valorMedioG(double x[], int N){
      
     // Caso base: quando o tamanho do array é 0, retorna 1
     if (N == 0)
-    return 1;  
+    return 0;  
     return (x[N - 1] + (N - 1)* valorMedioG(x, N - 1))/ N ;
 }
 int main() {
